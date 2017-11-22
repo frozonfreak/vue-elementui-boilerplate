@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <el-container>
+      <el-header>Header</el-header>
+      <el-main>
+        <img src="./assets/logo.png">
+        <router-view/>
+      </el-main>
+      <el-footer>Footer</el-footer>
+    </el-container>
+
   </div>
 </template>
 
@@ -18,6 +25,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+.el-header, .el-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+  }
 </style>
