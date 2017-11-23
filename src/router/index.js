@@ -19,18 +19,43 @@ export default new Router({
     },
     {
       path: '/about',
+      name: 'About',
       component: About
     },
     {
+      path: '/about/:text',
+      name: 'AboutWithParam',
+      component: About
+    },
+    {
+      path: '/redirect_name',
+      name: 'RedirectName',
+      redirect:
+      {
+        name: 'About'
+      }
+    },
+    {
+      path: '/redirect_url',
+      name: 'RedirectURL',
+      redirect:
+      {
+        name: 'About'
+      }
+    },
+    {
       path: '/parent',
+      name: 'Parent',
       component: Parent,
       children: [
         {
           path: 'foo',
+          name: 'Foo',
           component: Foo
         },
         {
           path: 'bar',
+          name: 'Bar',
           component: Bar
         }
       ]

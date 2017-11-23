@@ -20,17 +20,21 @@
                     <span>Navigator One</span>
                   </template>
                   <el-menu-item-group title="Group One">
-                    <el-menu-item index="1-1" @click="routeTo('/')">Home</el-menu-item>
-                    <el-menu-item index="1-2" @click="routeTo('/about')">About</el-menu-item>
+                    <el-menu-item index="1-1" @click="routeTo('HelloWorld')">Home</el-menu-item>
+                    <el-menu-item index="1-2" @click="routeTo('About')">About</el-menu-item>
+                    <el-menu-item index="1-3" @click="routeTo('AboutWithParam','Hello')">About With URL Parameter</el-menu-item>
                   </el-menu-item-group>
                   <el-menu-item-group title="Group Two">
-                    <el-menu-item index="1-3" >item three</el-menu-item>
+                    <el-menu-item index="1-4" @click="routeTo('RedirectURL')">Redirect via URL</el-menu-item>
+                    <el-menu-item index="1-5" @click="routeTo('RedirectName')">Redirect via Name</el-menu-item>
                   </el-menu-item-group>
-                  <el-submenu index="1-4">
-                    <template slot="title" @click="routeTo('/parent')">Parent</template>
-                    <el-menu-item index="1-4-1" @click="routeTo('/parent/foo')">Foo</el-menu-item>
-                    <el-menu-item index="1-4-2" @click="routeTo('/parent/bar')">Bar</el-menu-item>
-                  </el-submenu>
+                  <el-menu-item-group title="Group Three">
+                    <el-submenu index="1-6">
+                      <template slot="title" @click="routeTo('Parent')">Parent</template>
+                      <el-menu-item index="1-6-1" @click="routeTo('Foo')">Foo</el-menu-item>
+                      <el-menu-item index="1-6-2" @click="routeTo('Bar')">Bar</el-menu-item>
+                    </el-submenu>
+                  </el-menu-item-group>
                 </el-submenu>
                 <el-menu-item index="2">
                   <i class="el-icon-menu"></i>
@@ -68,8 +72,8 @@ export default {
     handleClose (key, keyPath) {
       console.log(key, keyPath)
     },
-    routeTo (path) {
-      this.$router.push(path)
+    routeTo (routeName, param) {
+      this.$router.push({name: routeName, params: { text: param }})
     }
   }
 }
