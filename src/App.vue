@@ -20,11 +20,11 @@
                     <span>Navigator One</span>
                   </template>
                   <el-menu-item-group title="Group One">
-                    <el-menu-item index="1-1"><router-link to="/">Home</router-link></el-menu-item>
-                    <el-menu-item index="1-2"><router-link to="/about">About</router-link></el-menu-item>
+                    <el-menu-item index="1-1" @click="routeTo('/')">Home</el-menu-item>
+                    <el-menu-item index="1-2" @click="routeTo('about')">About</el-menu-item>
                   </el-menu-item-group>
                   <el-menu-item-group title="Group Two">
-                    <el-menu-item index="1-3">item three</el-menu-item>
+                    <el-menu-item index="1-3" >item three</el-menu-item>
                   </el-menu-item-group>
                   <el-submenu index="1-4">
                     <template slot="title">item four</template>
@@ -64,6 +64,9 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    routeTo (path) {
+      this.$router.push(path)
     }
   }
 }
