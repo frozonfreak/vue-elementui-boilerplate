@@ -21,14 +21,15 @@
                   </template>
                   <el-menu-item-group title="Group One">
                     <el-menu-item index="1-1" @click="routeTo('/')">Home</el-menu-item>
-                    <el-menu-item index="1-2" @click="routeTo('about')">About</el-menu-item>
+                    <el-menu-item index="1-2" @click="routeTo('/about')">About</el-menu-item>
                   </el-menu-item-group>
                   <el-menu-item-group title="Group Two">
                     <el-menu-item index="1-3" >item three</el-menu-item>
                   </el-menu-item-group>
                   <el-submenu index="1-4">
-                    <template slot="title">item four</template>
-                    <el-menu-item index="1-4-1">item one</el-menu-item>
+                    <template slot="title" @click="routeTo('/parent')">Parent</template>
+                    <el-menu-item index="1-4-1" @click="routeTo('/parent/foo')">Foo</el-menu-item>
+                    <el-menu-item index="1-4-2" @click="routeTo('/parent/bar')">Bar</el-menu-item>
                   </el-submenu>
                 </el-submenu>
                 <el-menu-item index="2">
@@ -46,7 +47,9 @@
         <el-container>
           <el-main>
             <img src="./assets/logo.png">
-            <router-view/>
+            <transition name="fade" mode="out-in">
+              <router-view class="view"></router-view>
+            </transition>
           </el-main>
           <el-footer>Footer</el-footer>
         </el-container>
