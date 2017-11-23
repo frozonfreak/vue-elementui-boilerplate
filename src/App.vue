@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <el-container>
       <el-header>Header</el-header>
       <el-main>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style>
-#app {
+.app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
