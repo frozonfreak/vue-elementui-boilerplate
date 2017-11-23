@@ -52,7 +52,6 @@
         </el-container>
       </el-container>
     </el-container>
-
   </div>
 </template>
 
@@ -97,7 +96,7 @@ export default {
 }
 
 .el-aside {
-    background-color: #D3DCE6;
+    background-color: #545c64;
     color: #333;
     text-align: center;
     line-height: 200px;
