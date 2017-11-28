@@ -4,12 +4,34 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
-import router from './router'
+import VueRouter from 'vue-router'
+import routes from './routes'
 import store from './vuex/store'
 
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 Vue.use(ElementUI)
+Vue.use(VueRouter)
+
+NProgress.configure({ showSpinner: false })
 
 Vue.config.productionTip = false
+
+const router = new VueRouter({
+  mode: 'history',
+  routes
+})
+
+router.beforeEach((to, from, next) => {
+  console.log(to, from, next)
+  NProgress.start()
+  next()
+})
+
+router.afterEach(transition => {
+  NProgress.done()
+})
 
 /* eslint-disable no-new */
 new Vue({
