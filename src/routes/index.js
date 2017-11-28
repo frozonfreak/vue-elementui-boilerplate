@@ -1,11 +1,19 @@
 import HelloWorld from '@/components/HelloWorld'
 import About from '@/components/About'
 
+import NotFound from '@/components/Errors/404'
+
 import Parent from '@/components/Parent'
 import Foo from '@/components/Parent/Foo'
 import Bar from '@/components/Parent/Bar'
 
 let routes = [
+  {
+    path: '/404',
+    component: NotFound,
+    name: '',
+    hidden: true
+  },
   {
     path: '/',
     name: 'HelloWorld',
@@ -53,6 +61,11 @@ let routes = [
         component: Bar
       }
     ]
+  },
+  {
+    path: '*',
+    hidden: true,
+    redirect: { path: '/404' }
   }
 ]
 
