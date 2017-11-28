@@ -3,16 +3,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // General
+import Home from '@/components/Home'
 import HelloWorld from '@/components/HelloWorld'
 import About from '@/components/About'
 
 // Errors
 import NotFound from '@/components/Errors/404'
-
-// Parent Child
-import Parent from '@/components/Parent'
-import Foo from '@/components/Parent/Foo'
-import Bar from '@/components/Parent/Bar'
 
 // Progress bar
 import NProgress from 'nprogress'
@@ -33,50 +29,23 @@ let router = new Router({
     },
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: About
-    },
-    {
-      path: '/about/:text',
-      name: 'AboutWithParam',
-      component: About
-    },
-    {
-      path: '/redirect_name',
-      name: 'RedirectName',
-      redirect:
-      {
-        name: 'About'
-      }
-    },
-    {
-      path: '/redirect_url',
-      name: 'RedirectURL',
-      redirect:
-      {
-        name: 'About'
-      }
-    },
-    {
-      path: '/parent',
-      name: 'Parent',
-      component: Parent,
+      component: Home,
+      name: 'Nav1',
+      iconCls: 'el-icon-message',
       children: [
-        {
-          path: 'foo',
-          name: 'Foo',
-          component: Foo
-        },
-        {
-          path: 'bar',
-          name: 'Bar',
-          component: Bar
-        }
+        { path: '/helloworld', component: HelloWorld, name: 'HelloWorld' },
+        { path: '/about', component: About, name: 'About' },
+        { path: '/about/:text', component: About, name: 'AboutWithParam' }
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: 'Redirect',
+      iconCls: 'fa fa-address-card',
+      children: [
+        { path: '/redirect_name', redirect: {name: 'About'}, name: 'RedirectName' },
+        { path: '/redirect_url', redirect: {name: 'About'}, name: 'RedirectURL' }
       ]
     },
     {
