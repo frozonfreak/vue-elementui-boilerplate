@@ -1,6 +1,6 @@
 # vue-elementui-boilerplate
 
-> A Vue.js, Vue-Router and Element UI 2.0 Boiler plate
+> A Vue.js, Vue-Router, VueX, Axios, and Element UI 2.0 Boiler plate
 
 ## Build Setup
 
