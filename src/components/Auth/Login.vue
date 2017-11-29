@@ -14,6 +14,11 @@
     <el-form-item style="width:100%;">
       <el-button style="width:100%;" @click.native.prevent="handleReset">Reset</el-button>
     </el-form-item>
+    <el-row>
+      <el-col :span="24">
+        <router-link :to="{ name: 'Register' }" class="align-right">New User?</router-link>
+      </el-col>
+    </el-row>
   </el-form>
 </template>
 
@@ -95,6 +100,9 @@
     }
     .remember {
       margin: 0px 0px 35px 0px;
+    }
+    .align-right {
+      float: right;
     }
   }
 </style>

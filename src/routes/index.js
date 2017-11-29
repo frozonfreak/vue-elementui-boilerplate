@@ -29,13 +29,13 @@ let router = new Router({
     {
       path: '/signup',
       component: Register,
-      name: '',
+      name: 'Register',
       hidden: true
     },
     {
       path: '/login',
       component: Login,
-      name: '',
+      name: 'Login',
       hidden: true
     },
     {

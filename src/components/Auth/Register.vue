@@ -1,5 +1,5 @@
 <template>
-  <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-position="left" label-width="0px" class="demo-ruleForm login-container">
+  <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-position="left" label-width="0px" class="demo-ruleForm signup-container">
     <h3 class="title">System Signup</h3>
     <el-form-item prop="account">
       <el-input type="text" v-model="ruleForm2.account" auto-complete="off" placeholder="UserName"></el-input>
@@ -16,6 +16,11 @@
     <el-form-item style="width:100%;">
       <el-button style="width:100%;" @click.native.prevent="handleReset">Reset</el-button>
     </el-form-item>
+    <el-row>
+      <el-col :span="24">
+        <router-link :to="{ name: 'Login' }" class="align-right">Already registered?</router-link>
+      </el-col>
+    </el-row>
   </el-form>
 </template>
 
@@ -92,7 +97,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .login-container {
+  .signup-container {
     box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -109,8 +114,8 @@
       text-align: center;
       color: #505458;
     }
-    .remember {
-      margin: 0px 0px 35px 0px;
+    .align-right {
+      float: right;
     }
   }
 </style>
