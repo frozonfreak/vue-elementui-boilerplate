@@ -6,6 +6,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import HelloWorld from '@/components/HelloWorld'
 import About from '@/components/About'
+import Store from '@/components/Store'
 
 // Errors
 import NotFound from '@/components/Errors/404'
@@ -42,10 +43,19 @@ let router = new Router({
       path: '/',
       component: Home,
       name: 'Redirect',
-      iconCls: 'fa fa-address-card',
+      iconCls: 'fa fa-reply',
       children: [
         { path: '/redirect_name', redirect: {name: 'About'}, name: 'RedirectName' },
         { path: '/redirect_url', redirect: {name: 'About'}, name: 'RedirectURL' }
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: 'Store',
+      iconCls: 'fa fa-circle-thin',
+      children: [
+        { path: '/store', component: Store, name: 'Store' }
       ]
     },
     {
