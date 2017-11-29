@@ -52,7 +52,7 @@ let router = new Router({
     {
       path: '/',
       component: Home,
-      name: 'Store',
+      name: 'VueX',
       iconCls: 'fa fa-circle-thin',
       children: [
         { path: '/store', component: Store, name: 'Store' }
