@@ -77,7 +77,7 @@
 
 <style lang="scss" scoped>
   .login-container {
-    /*box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);*/
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
     -webkit-border-radius: 5px;
     border-radius: 5px;
     -moz-border-radius: 5px;
