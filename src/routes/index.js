@@ -78,7 +78,15 @@ let router = new Router({
 // Set progress bar for every route.
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  next()
+  if (to.path === '/login') {
+    sessionStorage.removeItem('user')
+  }
+  let user = JSON.parse(sessionStorage.getItem('user'))
+  if (!user && to.path !== '/login') {
+    next({ path: '/login' })
+  } else {
+    next()
+  }
 })
 
 router.afterEach(transition => {
