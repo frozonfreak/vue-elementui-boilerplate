@@ -10,6 +10,8 @@
     <el-checkbox v-model="checked" checked class="remember">Remember me</el-checkbox>
     <el-form-item style="width:100%;">
       <el-button type="primary" style="width:100%;" @click.native.prevent="handleSubmit" :loading="loading">Login</el-button>
+    </el-form-item>
+    <el-form-item style="width:100%;">
       <el-button style="width:100%;" @click.native.prevent="handleReset">Reset</el-button>
     </el-form-item>
   </el-form>
