@@ -40,5 +40,32 @@ export default {
         }, 1000)
       })
     })
+
+    mock.onPost('/register').reply(config => {
+      let {username, password} = JSON.parse(config.data)
+      return new Promise((resolve, reject) => {
+        let user = null
+        setTimeout(() => {
+          LoginUsers.push({id: LoginUsers[LoginUsers.length - 1]['id'] + 1,
+            username: username,
+            password: password,
+            avatar: 'https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png',
+            name: username})
+          let hasUser = LoginUsers.some(u => {
+            if (u.username === username && u.password === password) {
+              user = JSON.parse(JSON.stringify(u))
+              user.password = undefined
+              return true
+            }
+          })
+
+          if (hasUser) {
+            resolve([200, { code: 200, msg: 'The request is succesful', user }])
+          } else {
+            resolve([200, { code: 500, msg: 'Incorrect username or password' }])
+          }
+        }, 1000)
+      })
+    })
   }
 }

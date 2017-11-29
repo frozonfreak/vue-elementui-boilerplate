@@ -4,6 +4,7 @@ import Router from 'vue-router'
 
 // Auth
 import Login from '@/components/Auth/Login'
+import Register from '@/components/Auth/Register'
 
 // General
 import Home from '@/components/Home'
@@ -25,6 +26,12 @@ NProgress.configure({ showSpinner: false })
 let router = new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/signup',
+      component: Register,
+      name: '',
+      hidden: true
+    },
     {
       path: '/login',
       component: Login,
@@ -82,7 +89,7 @@ router.beforeEach((to, from, next) => {
     sessionStorage.removeItem('user')
   }
   let user = JSON.parse(sessionStorage.getItem('user'))
-  if (!user && to.path !== '/login') {
+  if (!user && to.path !== '/login' && to.path !== '/signup') {
     next({ path: '/login' })
   } else {
     next()
