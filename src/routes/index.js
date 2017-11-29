@@ -2,6 +2,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// Auth
+import Login from '@/components/Auth/Login'
+
 // General
 import Home from '@/components/Home'
 import HelloWorld from '@/components/HelloWorld'
@@ -22,6 +25,12 @@ NProgress.configure({ showSpinner: false })
 let router = new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/login',
+      component: Login,
+      name: '',
+      hidden: true
+    },
     {
       path: '/404',
       component: NotFound,
